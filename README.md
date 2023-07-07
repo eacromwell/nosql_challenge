@@ -1,0 +1,91 @@
+# nosql-challenge ("Eat Safe, Love")
+Module 12 Challenge | Evan Cromwell | Denver University Data Analytics Bootcamp
+
+Module 12 Challenge Background                                                       
+
+•	Congratulations! You've decided to treat yourself to a long holiday vacation in Honolulu, Hawaii. To help with your trip planning, you decide to do a climate analysis about the area. The following sections outline the steps that you need to take to accomplish this task.
+
+# Requirements
+
+Part 1: Database and Jupyter Notebook Set Up (15 points)
+To receive all points, your Jupyter notebook setup file must have all of the following:
+
+- Include the mongoimport command text you used to import establishments.json in a markdown cell at the beginning of your Jupyter notebook file (3 points)
+- The mongoimport command text correctly drops any existing establishments collection before importing establishments.json into MongoDB (2 points)
+- The database is named uk_food and the collection is named establishments (2 points)
+- Correctly imports PyMongo and Pretty Print (2 points)
+- An instance of the Mongo Client is created (1 point)
+- Lists the databases you have in Mongo, which includes uk_food (1 point)
+- Lists the collection(s) in the uk_food database, which includes establishments in the output (1 point)
+- Uses find_one() and pprint to display one document in the establishments collection (2 points)
+- The establishments collection is assigned to a variable (1 point)
+
+Part 2: Update the Database (20 points)
+To receive all points, your Jupyter notebook setup file must have all of the following:
+- The supplied data for the "Penang Flavours" restaurant is correctly inserted into the establishments collection (3 points)
+- A query is performed to find the BusinessTypeID for "Restaurant/Cafe/Canteen" and returns only the BusinessTypeID and BusinessType fields (3 points)
+- The "Penang Flavours" document is updated with the correct value for BusinessTypeID (3 points)
+- A query is correctly performed to delete all the documents in the collection where "Dover Local Authority" is the value for LocalAuthorityName (3 points)
+- A count_documents() check is performed before and after the removal of the Dover documents to ensure the documents were removed (4 points)
+- An update_many() query is performed to convert the latitude and longitude fields from strings to decimal numbers and RatingValue to integers (4 points)
+
+Part 3: Exploratory Analysis (55 points)
+To receive all points, your Jupyter notebook analysis file must have all of the following:
+- Question 1: Which establishments have a hygiene score equal to 20? (8 points)
+- A query is correctly performed to find the establishments with a hygiene score of 20 (2 points)
+- count_documents() is used to list the correct number of documents (answer: 41) (2 points)
+- The first result is printed using pprint (2 points)
+- The results are converted to a Pandas DataFrame and displays the first 10 rows (2 points)
+- Question 2: Which establishments in London have a RatingValue greater than or equal to 4? (12 points)
+- A query is correctly performed to find the establishments in London with a RatingValue greater than or equal to 4 (4 points)
+- The query uses the $regex operator to locate the London establishments (2 points)
+- count_documents() is used to list the correct number of documents (answer: 34) (2 points)
+- The first result is printed using pprint (2 points)
+- The results are converted to a Pandas DataFrame and displays the first 10 rows (2 points)
+- Question 3: What are the top 5 establishments with a RatingValue of 5, sorted by lowest hygiene score, nearest to the new restaurant added, "Penang Flavours"? (15 points)
+- A query is correctly performed to find the establishments within 0.01 degree of the "Penang Flavours" restaurant (4 points)
+- The query also limits the results to establishments with a RatingValue of 5 (2 points)
+- The query uses the sort() method in PyMongo to sort in ascending order on the hygiene score (2 points)
+- The query uses the limit() method in PyMongo to limit the results to 5 (2 points)
+- All five results are printed using pprint (3 points)
+- The results are converted to a Pandas DataFrame and displayed (2 points)
+- Question 4: How many establishments in each Local Authority area have a hygiene score of 0? Sort the results from highest to lowest, and print out the top ten local authority areas. (20 points)
+- An aggregation pipeline is built to include a match query, group, and sort (3 points)
+- The match query matches documents with a hygiene score of 0 (2 points)
+- The group step of the pipeline is grouped on LocalAuthorityName and counts the number of documents (4 points)
+- The sort step of the pipeline sorts the count of the documents in descending order (2 points)
+- The aggregation pipeline is correctly sent to the aggregate() method (2 points)
+- The results from the aggregation query is cast as a list and then saved to a variable (2 points)
+- The first ten results are printed using pprint (3 points)
+- The results are converted to a Pandas DataFrame and displays the first 10 rows (2 points)
+
+Deployment and Submission (6 points)
+- To receive all points, you must:
+- Submit a link to a GitHub repository that’s cloned to your local machine and contains your files (2 points)
+- Use the command line to add your files to the repository (2 points)
+- Include appropriate commit messages in your files (2 points)
+- Comments (4 points)
+- To receive all points, your code must:
+- Be well commented with concise, relevant notes that other developers can understand (4 points)
+
+# Visualizations:
+
+Figure 1 - MongoDB Compass Connection to Database
+
+![fig1_mongodb_compass_connection](https://github.com/eacromwell/nosql_challenge/assets/123791177/8f00d1c6-7dee-4eb9-b75e-59a23957faaa)
+
+Figure 2 - Using Find_One in Python
+
+![fig2_pymongo_findone](https://github.com/eacromwell/nosql_challenge/assets/123791177/906125d3-e7a3-4740-9527-1fa45ddc84ee)
+
+Figure 3 - Using Update_One in Python
+
+![fig3_pymongo_update_one](https://github.com/eacromwell/nosql_challenge/assets/123791177/19945390-0597-404d-a7c7-e9d60ec9408c)
+
+Figure 4 - Creating a Query then converting to a DataFrame in Python
+
+![fig4_pymongo_query_to_dataframe](https://github.com/eacromwell/nosql_challenge/assets/123791177/c16a02e9-3533-4771-aa89-2cb66e5540ab)
+
+Figure 5 - Cloning the repository from GitBash
+
+![fig5_gitbash_github](https://github.com/eacromwell/nosql_challenge/assets/123791177/616eb42c-b397-475e-b132-baaceafa496b)
